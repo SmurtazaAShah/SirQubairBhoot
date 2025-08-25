@@ -1,15 +1,26 @@
-<!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <title>Site Editor</title>
-    <meta name="robots" content="noindex" />
-  </head>
-  <body>
-    <!-- Netlify Identity widget (handles login, password reset flows) -->
-    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Site</title>
+</head>
+<body>
+  <h1>Welcome to my site!</h1>
+  <p>If you see this, the site is working.</p>
 
-    <!-- Decap (Netlify) CMS UI -->
-    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
-  </body>
+  <!-- Netlify Identity (needed for invites + reset password links) -->
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", (user) => {
+        if (!user) {
+          window.netlifyIdentity.on("login", () => {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+  </script>
+</body>
 </html>
