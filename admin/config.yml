@@ -9,7 +9,8 @@ collections:
   - name: "pages"
     label: "Pages"
     files:
-      - file: "content/home.yml"
+      - name: "home"        # ✅ required field
+        file: "content/home.yml"
         label: "Homepage"
         fields:
           - { name: "title", label: "Hero Title", widget: "string" }
