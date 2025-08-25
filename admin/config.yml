@@ -1,17 +1,18 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: SmurtazaAShah/SirQubairBhoot
   branch: main
 
 media_folder: "public/images"
-public_folder: "/public/images"
+public_folder: "/images"
 
 collections:
   - name: "pages"
     label: "Pages"
     files:
-      - name: "home"        # ✅ required field
-        file: "content/home.yml"
+      - file: "content/home.yml"
         label: "Homepage"
+        name: "home"
         fields:
           - { name: "title", label: "Hero Title", widget: "string" }
           - { name: "subtitle", label: "Hero Subtitle", widget: "string" }
