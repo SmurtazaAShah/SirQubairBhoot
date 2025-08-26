@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Identity Redirect</title>
+  <meta name="robots" content="noindex" />
+</head>
+<body>
+  <p>One moment…</p>
+
+  <!-- Netlify Identity (handles invite/confirmation/reset) -->
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script>
+    // After login/confirm, send you into the CMS
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", () => {
+        window.netlifyIdentity.on("login", () => {
+          location.href = "/admin/";
+        });
+      });
+    }
+  </script>
+</body>
+</html>
